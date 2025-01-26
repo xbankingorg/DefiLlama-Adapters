@@ -1,6 +1,9 @@
+const axios = require('axios');
+
 async function tvl() {
+  const tvl = await axios.get("https://api.xbanking.org/v2/platform/tvl");
   return {
-    solana: 1e18,
+    solana: parseFloat(tvl.data)
   };
 }
 
